@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mercadinho São José</title>
+  <meta name="description" content="Fornecedores e produtos do Mercadinho São José, com previsão de falta de estoque, sazonalidade e cotação por e-mail.">
+  <meta name="theme-color" content="#1C2A4A">
+  <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/big-shoulders-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+  <a class="pular-para-conteudo" href="#conteudo" data-pular-para-conteudo>Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="topo__interno">
+      <a class="marca" href="#/">
+        <svg class="marca__icone" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 30 L30 8 H56 V34 L34 56 Z" fill="#FFD84A" stroke="#FFD84A" stroke-width="5" stroke-linejoin="round"/>
+          <circle cx="45" cy="19" r="5" fill="#1C2A4A"/>
+        </svg>
+        <span class="marca__nome">Mercadinho São José</span>
+      </a>
+      <nav class="menu" aria-label="Seções do sistema" data-menu hidden>
+        <a class="menu__item" href="#/" data-secao="/">Painel</a>
+        <a class="menu__item" href="#/fornecedores" data-secao="/fornecedores">Fornecedores</a>
+        <a class="menu__item" href="#/sazonalidade" data-secao="/sazonalidade">Sazonalidade</a>
+        <a class="menu__item" href="#/cotacoes" data-secao="/cotacoes">Cotações</a>
+      </nav>
+      <div class="usuario-logado" data-usuario-logado hidden>
+        <span class="usuario-logado__nome" data-nome-do-usuario></span>
+        <button class="botao-sair" type="button" data-sair>Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo" tabindex="-1">
+    <noscript><p class="aviso">Este sistema precisa de JavaScript ativado no navegador.</p></noscript>
+  </main>
+
+  <footer class="rodape">
+    <p>Trabalho da disciplina N695 Desenvolvimento de Plataformas Web, Universidade de Fortaleza, 2026.</p>
+  </footer>
+
+  <div class="notificacoes" id="notificacoes" aria-live="polite"></div>
+  <dialog class="dialogo" id="dialogo" aria-labelledby="dialogo-titulo"></dialog>
+</body>
+</html>
