@@ -1,0 +1,26 @@
+{
+  "name": "mercadinho-sao-jose",
+  "version": "1.0.0",
+  "description": "Plataforma Web do Mercadinho São José: fornecedores, produtos, previsão de falta de estoque, sazonalidade e cotação automática por e-mail.",
+  "type": "module",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:migrar": "node scripts/migrar.js",
+    "db:popular": "node scripts/popular-demo.js",
+    "db:recriar": "node scripts/popular-demo.js --recriar",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "express-rate-limit": "8.7.1",
+    "helmet": "8.3.0",
+    "nodemailer": "10.2.1",
+    "pg": "8.23.1"
+  }
+}
