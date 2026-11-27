@@ -2,8 +2,8 @@
 
 Plataforma Web do **Mercadinho São José**, desenvolvida para o Cenário 6 do trabalho da disciplina **N695 Desenvolvimento de Plataformas Web** (Universidade de Fortaleza, 2026). Cadastra fornecedores e os produtos que cada um entrega, prevê quando cada produto vai acabar, mostra a sazonalidade das vendas e pede cotação ao fornecedor por e-mail, sozinha, quando o estoque chega ao mínimo.
 
-- **Aplicação publicada:** https://SEU-SERVICO.onrender.com *(a equipe preenche depois de publicar)*
-- **Repositório:** https://github.com/SEU-USUARIO/mercadinho-sao-jose *(a equipe preenche)*
+- **Aplicação publicada:** https://mercadinho-sao-jose.onrender.com
+- **Repositório:** https://github.com/efycode/mercadinho-sao-jose
 - **Acesso para avaliação:** usuário `avaliacao` e senha `mercadinho2026` (também aparecem na tela de login)
 
 > **O problema do cenário:** o mercadinho compra de cerca de 15 fornecedores, descobre que um produto acabou apenas quando o cliente pergunta por ele e, na hora de repor, ninguém lembra de quem aquele item foi comprado.
@@ -199,22 +199,22 @@ Exemplos de requisição (troque o endereço pelo da aplicação publicada):
 
 ```bash
 # 1. Entrar: o cookie da sessão fica guardado no arquivo cookies.txt
-curl -c cookies.txt -X POST https://SEU-SERVICO.onrender.com/api/sessao \
+curl -c cookies.txt -X POST https://mercadinho-sao-jose.onrender.com/api/sessao \
   -H "Content-Type: application/json" \
   -d '{"usuario":"avaliacao","senha":"mercadinho2026"}'
 
 # 2. Usar a API com a sessão (-b envia o cookie)
-curl -b cookies.txt https://SEU-SERVICO.onrender.com/api/fornecedores
+curl -b cookies.txt https://mercadinho-sao-jose.onrender.com/api/fornecedores
 
-curl -b cookies.txt -X POST https://SEU-SERVICO.onrender.com/api/fornecedores \
+curl -b cookies.txt -X POST https://mercadinho-sao-jose.onrender.com/api/fornecedores \
   -H "Content-Type: application/json" \
   -d '{"razaoSocial":"Teste Ltda","cnpj":"12.345.678/0001-0","email":"a@b.com","telefone":"85999990000","prazoEntregaDias":2}'
 # → 400 {"mensagem":"Há campos inválidos...","erros":{"cnpj":"O CNPJ deve ter exatamente 14 dígitos..."}}
 
-curl -b cookies.txt -X DELETE https://SEU-SERVICO.onrender.com/api/fornecedores/1
+curl -b cookies.txt -X DELETE https://mercadinho-sao-jose.onrender.com/api/fornecedores/1
 # → 409 {"mensagem":"Não é possível excluir \"Distribuidora Nordeste Alimentos Ltda\": ainda há 4 produtos..."}
 
-curl https://SEU-SERVICO.onrender.com/api/fornecedores
+curl https://mercadinho-sao-jose.onrender.com/api/fornecedores
 # → 401 {"mensagem":"Entre no sistema para continuar."}
 ```
 
@@ -334,7 +334,7 @@ Não é preciso criar tabelas: ao subir, o sistema aplica o [`schema.sql`](src/d
 
 ### Manter no ar até 10/12
 
-- O plano gratuito do Render desliga o serviço depois de 15 minutos sem acessos, e o primeiro acesso seguinte leva cerca de 1 minuto. Para a avaliação, cadastre um monitor gratuito (por exemplo, [UptimeRobot](https://uptimerobot.com) ou [cron-job.org](https://cron-job.org)) que acesse `https://SEU-SERVICO.onrender.com/api/saude` a cada 10 minutos.
+- O plano gratuito do Render desliga o serviço depois de 15 minutos sem acessos, e o primeiro acesso seguinte leva cerca de 1 minuto. Para a avaliação, cadastre um monitor gratuito (por exemplo, [UptimeRobot](https://uptimerobot.com) ou [cron-job.org](https://cron-job.org)) que acesse `https://mercadinho-sao-jose.onrender.com/api/saude` a cada 10 minutos.
 - Essa rota não consulta o banco ([`painelController.js`](src/controllers/painelController.js)), então o Neon continua "dormindo" quando ninguém usa o sistema. Isso poupa as 100 horas de processamento por mês do plano gratuito do Neon.
 - O Render dá 750 horas gratuitas por mês. Um serviço ligado o mês inteiro cabe, desde que seja o único serviço gratuito da conta.
 
